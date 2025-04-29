@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الكلية التقنية للبنات بالطائف</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2A9D8F;
+            --secondary-color: #4CAF50;
+            --accent-color: #264653;
+            --text-color: #333;
+            --bg-color: #f5f5f5;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        .dark-mode {
+            --text-color: #ffffff;
+            --bg-color: #1a1a1a;
+            --white: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        body {
+            background: var(--bg-color);
+            color: var(--text-color);
+            transition: var(--transition);
+        }
+
+        /* النافبار */
+        .navbar {
+            background: var(--white);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo img {
+            width: 50px;
+            height: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* القسم الرئيسي */
+        .hero {
+            padding-top: 100px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(45deg, rgba(42, 157, 143, 0.1), rgba(76, 175, 80, 0.1));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        /* قسم عن الكلية */
+        .about {
+            padding: 5rem 0;
+            background: var(--white);
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+            font-size: 2rem;
+        }
+
+        /* قسم التخصصات */
+        .programs {
+            padding: 5rem 0;
+            background: var(--bg-color);
+        }
+
+        .program-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .program-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* قسم الفريق */
+        .team {
+            padding: 5rem 0;
+            background: var(--white);
+        }
+
+        .team-members {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .team-member {
+            text-align: center;
+            padding: 2rem;
+            background: var(--bg-color);
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+
+        .member-avatar {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 2.5rem;
+        }
+
+        /* قسم الأخبار */
+        .news {
+            padding: 5rem 0;
+            background: var(--bg-color);
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .news-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .news-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .news-content {
+            padding: 1.5rem;
+        }
+
+        /* قسم التواصل */
+        .contact {
+            padding: 5rem 0;
+            background: var(--white);
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: var(--bg-color);
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: var(--white);
+            color: var(--text-color);
+        }
+
+        .submit-btn {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .submit-btn:hover {
+            background: var(--secondary-color);
+        }
+
+        /* التذييل */
+        footer {
+            background: var(--accent-color);
+            color: var(--white);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 0 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: var(--white);
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* زر تبديل الوضع */
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: var(--primary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            background: var(--secondary-color);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="https://cdn.salla.sa/pERQB/hpd7UmMzYXleA9wrOw1YpzbCSq4dLCoFPTTRml5X.jpg" alt="شعار الكلية">
+                <span>الكلية التقنية للبنات بالطائف</span>
+            </div>
+            <div class="nav-links">
+                <a href="#home">الرئيسية</a>
+                <a href="#about">عن الكلية</a>
+                <a href="#programs">التخصصات</a>
+                <a href="#team">الفريق</a>
+                <a href="#news">الأخبار</a>
+                <a href="#contact">تواصل معنا</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>مرحباً بكم في الكلية التقنية للبنات بالطائف</h1>
+            <p>نحو مستقبل مشرق بالعلم والمعرفة</p>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="section-container">
+            <h2 class="section-title">عن الكلية</h2>
+            <p>الكلية التقنية للبنات بالطائف هي مؤسسة تعليمية رائدة تهدف إلى تأهيل الكوادر النسائية في مجالات التقنية المختلفة.</p>
+        </div>
+    </section>
+
+    <section id="programs" class="programs">
+        <div class="section-container">
+            <h2 class="section-title">التخصصات</h2>
+            <div class="program-cards">
+                <div class="program-card">
+                    <h3>تقنية المعلومات</h3>
+                    <p>برامج متخصصة في مجال الحاسب الآلي وتطوير البرمجيات</p>
+                </div>
+                <div class="program-card">
+                    <h3>الإدارة</h3>
+                    <p>برامج في مجال إدارة الأعمال والموارد البشرية</p>
+                </div>
+                <div class="program-card">
+                    <h3>التصميم</h3>
+                    <p>برامج في مجال التصميم الجرافيكي والوسائط المتعددة</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+       <section id="team" class="team">
+        <div class="section-container">
+            <h2 class="section-title">فريق العمل</h2>
+            <div class="team-members">
+                <div class="team-member">
+                    <div class="member-avatar">م</div>
+                    <h3>مودة</h3>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">ش</div>
+                    <h3>شوق</h3>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">غ</div>
+                    <h3>غلا</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="news" class="news">
+        <div class="section-container">
+            <h2 class="section-title">أحدث الأخبار</h2>
+            <div class="news-grid">
+                <div class="news-card">
+                    <img src="https://picsum.photos/400/300" alt="صورة خبر" class="news-image">
+                    <div class="news-content">
+                        <h3>فعاليات الأسبوع التقني</h3>
+                        <p>انطلاق فعاليات الأسبوع التقني بمشاركة العديد من الجهات التقنية</p>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <img src="https://picsum.photos/400/301" alt="صورة خبر" class="news-image">
+                    <div class="news-content">
+                        <h3>ورش عمل تدريبية</h3>
+                        <p>إقامة ورش عمل تدريبية في مجال البرمجة والتصميم</p>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <img src="https://picsum.photos/400/302" alt="صورة خبر" class="news-image">
+                    <div class="news-content">
+                        <h3>مسابقة الابتكار</h3>
+                        <p>إطلاق مسابقة الابتكار التقني للطالبات</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="section-container">
+            <h2 class="section-title">تواصل معنا</h2>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label>الاسم</label>
+                    <input type="text" required>
+                </div>
+                <div class="form-group">
+                    <label>البريد الإلكتروني</label>
+                    <input type="email" required>
+                </div>
+                <div class="form-group">
+                    <label>الرسالة</label>
+                    <textarea rows="5" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">إرسال</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>تواصل معنا</h3>
+                <p>الطائف، المملكة العربية السعودية</p>
+                <p>هاتف: xxxxxxxx</p>
+                <p>البريد الإلكتروني: info@example.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>روابط سريعة</h3>
+                <p><a href="#about">عن الكلية</a></p>
+                <p><a href="#programs">التخصصات</a></p>
+                <p><a href="#news">الأخبار</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>تابعونا</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="theme-toggle" onclick="toggleTheme()">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <script>
+        // تبديل الوضع الليلي/النهاري
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            const icon = document.querySelector('.theme-toggle i
